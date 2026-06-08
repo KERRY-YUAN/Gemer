@@ -1,0 +1,9 @@
+﻿{
+  "name": "com.gemer.bridge",
+  "description": "Gemer Python Native Messaging Host",
+  "path": "Gemer.bat",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://flbdhggdjfajgicdjmjgkkcfdikbgkai/"
+  ]
+}
