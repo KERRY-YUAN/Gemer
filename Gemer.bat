@@ -1,2 +1,2 @@
 @echo off
-"%~dp0sys\Scripts\pythonw.exe" "%~dp0Gemer.py"
+"%~dp0sys\pythonw.exe" "%~dp0Gemer.py"
