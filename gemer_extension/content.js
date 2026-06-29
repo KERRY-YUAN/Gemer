@@ -212,19 +212,38 @@ function showCommandCard(cmd) {
     card.innerHTML = `
         <div class="gemer-confirm-title">⚠ 物理接管指令待批准:</div>
         <div class="gemer-command-box">${cmd}</div>
+        
+        <div class="gemer-custom-input-wrapper">
+            <input type="text" id="gemer-custom-cmd-input" placeholder="💡 或者在此输入自定义指令延续终端..." />
+            <button class="gemer-sub-btn btn-custom-run" id="custom-approve-btn">执行自定义</button>
+        </div>
+
         <div class="gemer-btn-group">
-            <button class="gemer-sub-btn btn-approve" id="approve-btn">批准执行</button>
+            <button class="gemer-sub-btn btn-approve" id="approve-btn">批准原指令</button>
             <button class="gemer-sub-btn btn-reject" id="reject-btn">拒绝</button>
         </div>
     `;
     area.innerHTML = ""; 
     area.appendChild(card);
 
+    // 1. 批准原指令
     card.querySelector("#approve-btn").addEventListener("click", async () => {
         area.innerHTML = "<div style='font-size:12px; color:#86868b;'>正在执行系统指令，请稍候...</div>";
         await runCommandAndFeedBack(cmd);
     });
 
+    // 2. 新增：执行自定义指令
+    card.querySelector("#custom-approve-btn").addEventListener("click", async () => {
+        const customCmd = card.querySelector("#gemer-custom-cmd-input").value.trim();
+        if (!customCmd) {
+            alert("请输入自定义命令！");
+            return;
+        }
+        area.innerHTML = `<div style='font-size:12px; color:#86868b;'>正在执行自定义指令: ${customCmd}...</div>`;
+        await runCommandAndFeedBack(customCmd);
+    });
+
+    // 3. 拒绝
     card.querySelector("#reject-btn").addEventListener("click", () => {
         area.innerHTML = "";
         injectPrompt("【用户提示】: 我拒绝了执行上述系统指令。请给出其他的替代方案。");

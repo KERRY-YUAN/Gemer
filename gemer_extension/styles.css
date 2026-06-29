@@ -158,3 +158,44 @@
 .btn-reject:hover {
     background: #c82333;
 }
+
+/* 新增：自定义指令输入容器 */
+.gemer-custom-input-wrapper {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* 自定义指令输入框 */
+#gemer-custom-cmd-input {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ffeeba;
+    font-size: 11px;
+    font-family: Consolas, Monaco, monospace;
+    background-color: #ffffff;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#gemer-custom-cmd-input:focus {
+    border-color: #b19240;
+    box-shadow: 0 0 0 2px rgba(177, 146, 64, 0.1);
+}
+
+/* 执行自定义指令按钮 */
+.btn-custom-run {
+    background: #b19240;
+    color: white;
+    padding: 6px 10px !important;
+    flex: none !important; /* 不随 flex 随意伸缩 */
+    width: auto;
+    white-space: nowrap;
+}
+
+.btn-custom-run:hover {
+    background: #947933;
+}

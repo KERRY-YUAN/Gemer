@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Gemer Web Bridge",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "连接浏览器端 AI 与您本地电脑的物理控制桥梁。",
   "permissions": ["activeTab", "nativeMessaging"],
   "host_permissions": [
